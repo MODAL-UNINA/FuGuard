@@ -500,27 +500,27 @@ class FuGuardClient(FedAvgClient):
 
 
 class FuGuardServer_unlearn(FedAvgServer):
-    def __init__(self, args, trained_server: FedAvgServer, load_gan=True):
+    def __init__(self, args, trained_server: FedAvgServer, load_gen=True):
         super().__init__(args)
         self.trained_server = trained_server
         self.unlearn_model = copy.deepcopy(self.trained_server.global_model)
         self.client_instances = self.trained_server.client_instances  
 
-        self.gan_model = None
+        self.gen_model = None
 
-    def load_pretrained_gan(self):
-        if self.gan_model is None:
+    def load_pretrained_gen(self):
+        if self.gen_model is None:
             try:
-                print("Loading pre-trained GAN model...")
-                self.gan_model = AutoencoderKL.from_pretrained("stabilityai/sd-vae-ft-mse")
-                self.gan_model.to(self.args.device)
-                print("GAN model loaded successfully.")
+                print("Loading pre-trained Gen model...")
+                self.gen_model = AutoencoderKL.from_pretrained("stabilityai/sd-vae-ft-mse")
+                self.gen_model.to(self.args.device)
+                print("GEN model loaded successfully.")
             except Exception as e:
-                raise RuntimeError(f"Failed to load GAN model: {e}")
+                raise RuntimeError(f"Failed to load GEN model: {e}")
 
 
     def unlearn_process(self, client_idx):
-        self.load_pretrained_gan()
+        self.load_pretrained_gen()
         sinkhorn_loss = SamplesLoss(loss="sinkhorn", p=2, blur=0.05)
         
         client = self.client_instances[client_idx]
@@ -541,7 +541,7 @@ class FuGuardServer_unlearn(FedAvgServer):
         z_B_list = []
         with torch.no_grad():
             for images, _ in sampled_dataloader:
-                latent = self.gan_model.encode(images).latent_dist
+                latent = self.gen_model.encode(images).latent_dist
                 z_B_list.append(latent.mean)
 
         z_B = torch.cat(z_B_list, dim=0)
@@ -557,12 +557,12 @@ class FuGuardServer_unlearn(FedAvgServer):
         z_new = apply_principal_direction(z_B, principal_dirs, dir_idx=1, alpha=1.0)
 
         # Step 4: decode
-        new_data = self.gan_model.decode(z_new).sample
+        new_data = self.gen_model.decode(z_new).sample
         new_data = new_data.clamp(0, 1)
 
         print(f"Generated new data with shape: {new_data.shape}")
 
-        del self.gan_model
+        del self.gen_model
         torch.cuda.empty_cache()
 
         # new dataset
@@ -646,7 +646,7 @@ class FuGuardServer_unlearn(FedAvgServer):
 
 class FUGenServer_recover(FuGuardServer_unlearn):
     def __init__(self, args, unlearn: FuGuardServer_unlearn):
-        super().__init__(args, unlearn.trained_server, load_gan=False)
+        super().__init__(args, unlearn.trained_server, load_gen=False)
 
         self.communication_round_recover = args.communication_round_recover
         self.server_unlearn = unlearn  
