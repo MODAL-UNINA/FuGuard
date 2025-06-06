@@ -9,7 +9,7 @@ Federated Learning (FL) is a widely adopted paradigm that enables collaborative 
 
 ## Background
 <p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/backdoor.png" width="450">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/backdoor.png" width="350">
 </p>
 Backdoor attacks in federated learning, where an attacker client trains on trigger-labeled data and uploads poisoned updates to induce malicious behavior in the global model.
 
