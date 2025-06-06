@@ -14,14 +14,9 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 
 ## Experiment
 <p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/client_label.png" width="300">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results.png" width="300">
 </p>
-Label distribution and sample count per Client on SVHN Dataset, before (top) and after (bottom) the backdoor injection.
 
-<p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/test_label.png" width="300">
-</p>
-Label distribution and count per testset on SVHN Dataset.
 
 
 
