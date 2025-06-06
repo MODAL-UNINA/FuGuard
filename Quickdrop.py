@@ -1,3 +1,6 @@
+# This file includes portions of code adapted from https://github.com/sacs-epfl/quickdrop
+# Credit to the original authors. Modifications have been made to fit the needs of this project.
+
 import argparse
 import copy
 import math
