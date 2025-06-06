@@ -48,6 +48,61 @@ python ../code/FuGuard.py \
   --persistent_workers False \
   --seed 0
 
+Parameter explanations:
+
+--device: GPU device to use (e.g., cuda:0)
+
+--dataset: Dataset name (SVHN, CIFAR10, etc.)
+
+--client_idx: Target backdoor client ID
+
+--model: Model architecture (ConvNet, MLP)
+
+--env_path: Path to environment data
+
+--strategy: Client partitioning strategy (e.g., dilichlet)
+
+--env: Federated learning environment name
+
+--communication_round: Number of FL communication rounds
+
+--learning_rate: Learning rate for global update
+
+--weight_decay: Weight decay parameter
+
+--momentum: SGD momentum
+
+--local_epoch: Number of local epochs per client
+
+--save_path: Directory to save checkpoints and logs
+
+--batch_size: Training batch size
+
+--samples_scale: Sampling ratio for generation
+
+--gen_bs: Batch size during generation phase
+
+--unlearn_bs: Batch size during unlearning phase
+
+--ot_lambda: Optimal transport unlearning weight
+
+--alpha: Additional parameter for training
+
+--forgetting_epoch: Epochs for forgetting step
+
+--forgetting_lr: Learning rate during forgetting
+
+--recover_epoch: Epochs for recovery step
+
+--communication_round_recover: Communication rounds for recovery
+
+--num_workers: Number of data loader workers
+
+--pin_memory: Whether to pin memory for DataLoader
+
+--persistent_workers: Whether to use persistent DataLoader workers
+
+--seed: Random seed for reproducibility
 
 ---
 
