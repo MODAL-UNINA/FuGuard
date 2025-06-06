@@ -8,7 +8,7 @@ Federated Learning (FL) is a widely adopted paradigm that enables collaborative 
 
 ## Framework
 
-![Alt text](../FuGuard/framework.png)
+![Alt text](https://github.com/MODAL-UNINA/FuGuard/blob/main/png/framework.png)
 
 
 
