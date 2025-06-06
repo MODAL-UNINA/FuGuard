@@ -13,15 +13,6 @@ Federated Learning (FL) is a widely adopted paradigm that enables collaborative 
 Overview of the proposed framework, FuGuard. The process begins with a standard federated training phase to obtain a global model. Upon receiving a deletion request, a pre-trained generative model synthesizes a compact and privacy-preserving proxy dataset for the target client. This proxy enables a gradient ascent unlearning, where model updates are guided by an optimal transport. Finally, a few recovery steps restore the global model's performance.
 
 ## Experiment
-| Phase           | Method               | SVHN ACC-Clean | SVHN ACC-Backdoor | EuroSAT ACC-Clean | EuroSAT ACC-Backdoor | CIFAR-10 ACC-Clean | CIFAR-10 ACC-Backdoor | CIFAR-100 ACC-Clean | CIFAR-100 ACC-Backdoor |
-|-----------------|----------------------|----------------|-------------------|-------------------|----------------------|--------------------|-----------------------|---------------------|------------------------|
-| Training        | FedAvg               | 85.14          | 67.90             | 79.28             | 83.59                | 67.98              | 61.01                 | 48.38               | 65.71                  |
-| Unlearn + Recovery | Retrain            | 76.43          | 5.36              | 62.46             | 12.85                | 47.03              | 6.23                  | 28.42               | 0.52                   |
-|                 | FedSGA [1]           | 80.24          | 4.54              | 63.68             | 8.50                 | 63.17              | 11.72                 | 24.83               | 1.16                   |
-|                 | FU [2]               | 86.48          | 20.33             | 79.55             | 31.70                | 68.69              | 23.29                 | 50.36               | 12.22                  |
-|                 | Quickdrop [3]        | 66.37          | 58.56             | 56.87             | 61.11                | 46.27              | 35.14                 | 15.93               | 55.59                  |
-|                 | FuGuard (Ours)       | 86.12          | 6.49              | 79.35             | 9.89                 | 68.01              | 10.02                 | 49.57               | 1.48                   |
-
 
 
 
