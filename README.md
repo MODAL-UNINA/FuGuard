@@ -17,6 +17,7 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
   <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results.png" width="600">
 </p>
 
+python dilichlet_allocator_backdoor.py --dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --target_client f_00003 --target_label 9 --inject_ratio 1
 
 
 
