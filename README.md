@@ -20,10 +20,10 @@ Using the SVHN dataset as an example, the commands below show how to reproduce t
 
 ```bash
 python dilichlet_allocator_backdoor.py
---dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --target_client f_00003 --target_label 9 --inject_ratio 1
+--dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --client_idx f_00003 --target_label 9 --inject_ratio 1
 
 python ../code/FuGuard.py
---device cuda:0 --dataset SVHN --target_client f_00003 --model ConvNet --env_path ../backdoor
+--device cuda:0 --dataset SVHN --client_idx f_00003 --model ConvNet --env_path ../backdoor
 --strategy dilichlet --env seed0-u10-alpha0.1 --communication_round 50 --learning_rate 0.001
 --weight_decay 0.0001 --momentum 0.9 --local_epoch 5 --save_path ../save/fuguard --batch_size 256
 --samples_scale 0.1 --gen_bs 64 --unlearn_bs 64 --ot_lambda 0.1 --alpha 0.5 --forgetting_epoch 5
@@ -38,7 +38,7 @@ python ../code/FuGuard.py
 
 --alpha: Controls the degree of non-iid distribution; lower values mean higher heterogeneity.
 
---target_client: The ID of the client to be backdoored (e.g., f_00003).
+--client_idx: The ID of the client to be backdoored (e.g., f_00003).
 
 --target_label: The target label for backdoor injection.
 
