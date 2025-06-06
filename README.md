@@ -75,7 +75,7 @@ Implemented Federated Unlearning methods:
    Use the `dilichlet_allocator_backdoor.py` to simulate a federated training environment with backdoor injection.
 
 2. **Run FU Methods**  
-   Select and run any of the implemented FU strategies to evaluate their performance in the folder '../code'.
+   Select and run any of the implemented FU strategies to evaluate their performance in the folder `../code`.
 
 ---
 
