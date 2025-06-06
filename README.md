@@ -14,7 +14,7 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 
 ## Experiment
 <p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results.png" width="300">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results.png" width="800">
 </p>
 
 
