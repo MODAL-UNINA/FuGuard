@@ -15,7 +15,7 @@ Backdoor attacks in federated learning, where an attacker client trains on trigg
 
 ## Framework
 <p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/framework.png" width="500">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/framework.png" width="800">
 </p>
 Overview of the proposed framework, FuGuard. The process begins with a standard federated training phase to obtain a global model. Upon receiving a deletion request, a pre-trained generative model synthesizes a compact and privacy-preserving proxy dataset for the target client. This proxy enables a gradient ascent unlearning, where model updates are guided by an optimal transport. Finally, a few recovery steps restore the global model's performance.
 
