@@ -1,6 +1,3 @@
-# This file includes portions of code adapted from https://github.com/sacs-epfl/quickdrop
-# Credit to the original authors. Modifications have been made to fit the needs of this project.
-
 import sys
 import argparse
 from torch.fft import Tensor
@@ -234,6 +231,10 @@ parser.add_argument("--dataset_name", type=str, default="SVHN", help="dataset")
 parser.add_argument("--num_clients", type=int, default=10, help="The number of clients")
 parser.add_argument("--alpha", type=float, default=0.1, help="Lower alpha indicates higher non-iid")
 parser.add_argument("--seed", type=int, default=0, help="Random seed")
+parser.add_argument("--target_client", type=str, default="f_00003", help="Client to inject backdoor")
+parser.add_argument("--target_label", type=int, default=9, help="Backdoor target label")
+parser.add_argument("--inject_ratio", type=float, default=1, help="Ratio of injected backdoor samples")
+
 args = parser.parse_args("")
 
 
@@ -294,12 +295,8 @@ for i in tqdm(range(N_CLIENTS)):
         len([item for l in client_idcs[i] for item in l])
     )
 
-# backdoor
-target_client = "f_00003"
-target_label = 9
-inject_ratio = 1
 
-client_data = train_dataset["user_data"][target_client]
+client_data = train_dataset["user_data"][args.target_client]
 x_data = client_data["x"]
 y_data = client_data["y"]
 
@@ -321,15 +318,15 @@ else:
 # create poison trainset
 poisoned_dataset = back_door(
     target_dataset=TensorDataset(x_data, y_data),
-    target_label=target_label,
+    target_label=args.target_label,
     trigger_function=trigger_function,
-    inject_ratio=inject_ratio,
+    inject_ratio=args.inject_ratio,
     value=value,
     broadcast=False
 )
 
-train_dataset["user_data"][target_client]["x"] = poisoned_dataset.tensors[0]
-train_dataset["user_data"][target_client]["y"] = poisoned_dataset.tensors[1]
+train_dataset["user_data"][args.target_client]["x"] = poisoned_dataset.tensors[0]
+train_dataset["user_data"][args.target_client]["y"] = poisoned_dataset.tensors[1]
 
 
 # create poison testset
@@ -337,7 +334,7 @@ clean_test_data = test_data
 
 poisoned_test_data = back_door(
     target_dataset=test_data,
-    target_label=target_label,
+    target_label=args.target_label,
     trigger_function=trigger_function,
     inject_ratio=1.0,
     value=value,
