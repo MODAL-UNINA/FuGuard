@@ -1,4 +1,4 @@
-# Federated Unlearning (FU) Experiments
+# FuGuard: Client-Level Federated Unlearning via Generative Surrogates and Optimal Transport
 
 This repository supports research on the training and **unlearning** process in Federated Learning (FL). It provides a modular framework to explore and compare various Federated Unlearning (FU) methods.
 
