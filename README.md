@@ -56,7 +56,7 @@ Parameter explanations:
 --`forgetting_lr`: Learning rate during forgetting
 
 --`communication_round_recover`: Communication rounds for recovery
-
+```
 ---
 
 ## 📁 Project Structure
