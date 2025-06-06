@@ -28,8 +28,9 @@ python ../code/FuGuard.py
 --samples_scale 0.1 --gen_bs 64 --unlearn_bs 64 --ot_lambda 0.1 --alpha 0.5 --forgetting_epoch 5
 --forgetting_lr 0.001 --recover_epoch 5 --communication_round_recover 10 --num_workers 4
 --pin_memory False --persistent_workers False --seed 0
+```
 
-Parameter explanations:
+## Parameter explanations:
 
 --device: GPU device to use (e.g., cuda:0)
 --dataset: Dataset name (SVHN, CIFAR10, etc.)
@@ -44,7 +45,7 @@ Parameter explanations:
 --forgetting_epoch: Epochs for forgetting step
 --forgetting_lr: Learning rate during forgetting
 --communication_round_recover: Communication rounds for recovery
-```
+
 ---
 
 ## 📁 Project Structure
