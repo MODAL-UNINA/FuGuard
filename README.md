@@ -31,7 +31,18 @@ python ../code/FuGuard.py
 --pin_memory False --persistent_workers False --seed 0
 ```
 
-## Parameter explanations:
+### Parameter explanations:
+--dataset_name: Name of the dataset (e.g., SVHN).
+
+--num_clients: Number of clients to split the data into.
+
+--alpha: Controls the degree of non-iid distribution; lower values mean higher heterogeneity.
+
+--target_client: The ID of the client to be backdoored (e.g., f_00003).
+
+--target_label: The target label for backdoor injection.
+
+--inject_ratio: The ratio of injected backdoor samples in the target client's data.
 
 --device: GPU device to use (e.g., cuda:0)
 
