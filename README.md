@@ -33,17 +33,29 @@ python ../code/FuGuard.py
 ## Parameter explanations:
 
 --device: GPU device to use (e.g., cuda:0)
+
 --dataset: Dataset name (SVHN, CIFAR10, etc.)
+
 --client_idx: Target backdoor client ID
+
 --strategy: Client partitioning strategy (e.g., dilichlet)
+
 --env: Federated learning environment name
+
 --communication_round: Number of FL communication rounds
+
 --samples_scale: Sampling ratio for generation
---gen_bs: Batch size during generation phase
---unlearn_bs: Batch size during unlearning phase
+
+--gen_bs: Batch size during data generation
+
+--unlearn_bs: Batch size during the unlearning phase
+
 --ot_lambda: Optimal transport unlearning weight
+
 --forgetting_epoch: Epochs for forgetting step
+
 --forgetting_lr: Learning rate during forgetting
+
 --communication_round_recover: Communication rounds for recovery
 
 ---
