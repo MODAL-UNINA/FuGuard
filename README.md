@@ -8,7 +8,7 @@ Federated Learning (FL) is a widely adopted paradigm that enables collaborative 
 
 ## Framework
 
-![Alt text](relative/path/to/image.png)
+![Alt text](../FuGuard/framework.png)
 
 
 
@@ -62,10 +62,10 @@ Implemented Federated Unlearning methods:
 ## 🚀 How to Use
 
 1. **Generate FL Environment**  
-   Use the `dilichlet_allocator_backdoor` module to simulate a federated training environment.
+   Use the `dilichlet_allocator_backdoor.py` to simulate a federated training environment with backdoor injection.
 
 2. **Run FU Methods**  
-   Select and run any of the implemented FU strategies to evaluate their performance.
+   Select and run any of the implemented FU strategies to evaluate their performance in the folder '../code'.
 
 ---
 
