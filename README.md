@@ -13,12 +13,15 @@ Federated Learning (FL) is a widely adopted paradigm that enables collaborative 
 Overview of the proposed framework, FuGuard. The process begins with a standard federated training phase to obtain a global model. Upon receiving a deletion request, a pre-trained generative model synthesizes a compact and privacy-preserving proxy dataset for the target client. This proxy enables a gradient ascent unlearning, where model updates are guided by an optimal transport. Finally, a few recovery steps restore the global model's performance.
 
 ## Experiment
+<p align="center">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/client_label.png" width="300">
+</p>
+Label distribution and sample count per Client on SVHN Dataset, before (top) and after (bottom) the backdoor injection.
 
-<div style="display: flex; gap: 10px;">
-  <img ssrc="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/client_label.png" width="300"/>
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/test_label.png" width="300"/>
-</div>
-
+<p align="center">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/test_label.png" width="300">
+</p>
+Label distribution and count per testset on SVHN Dataset.
 
 
 
