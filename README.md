@@ -23,7 +23,7 @@ python dilichlet_allocator_backdoor.py
 --dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --target_client f_00003 --target_label 9 --inject_ratio 1
 
 python ../code/FuGuard.py
---device cuda:0 --dataset SVHN --client_idx f_00003 --model ConvNet --env_path ../backdoor
+--device cuda:0 --dataset SVHN --target_client f_00003 --model ConvNet --env_path ../backdoor
 --strategy dilichlet --env seed0-u10-alpha0.1 --communication_round 50 --learning_rate 0.001
 --weight_decay 0.0001 --momentum 0.9 --local_epoch 5 --save_path ../save/fuguard --batch_size 256
 --samples_scale 0.1 --gen_bs 64 --unlearn_bs 64 --ot_lambda 0.1 --alpha 0.5 --forgetting_epoch 5
@@ -45,10 +45,6 @@ python ../code/FuGuard.py
 --inject_ratio: The ratio of injected backdoor samples in the target client's data.
 
 --device: GPU device to use (e.g., cuda:0)
-
---dataset: Dataset name (SVHN, CIFAR10, etc.)
-
---client_idx: Target backdoor client ID
 
 --strategy: Client partitioning strategy (e.g., dilichlet)
 
