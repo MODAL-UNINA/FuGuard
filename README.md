@@ -2,6 +2,29 @@
 
 This repository supports research on the training and **unlearning** process in Federated Learning (FL). It provides a modular framework to explore and compare various Federated Unlearning (FU) methods.
 
+## Abstract
+
+Federated Learning (FL) is a widely adopted paradigm that enables collaborative model training while preserving data privacy. As concerns around data poisoning and the “right to be forgotten” continue to grow, \textit{federated unlearning}, which is the ability to remove the influence of specific training data from a trained FL model, has become increasingly critical. However, existing unlearning methods often require expensive retraining or high communication overhead, limiting their practicality in real-world FL systems. In this work, we propose FuGuard, a dual-strategy federated unlearning framework, designed for efficient and scalable client-level data removal. FuGuard combines generative surrogate reconstruction, which approximates the contribution of the target client, with optimal transport regularization that softly constrains model parameter drift during unlearning. This approach effectively removes the influence of the target client while preserving the stability and performance of the global model. To evaluate the forgetting capability, we conduct adversarial testing using backdoor attacks for residual data influence. Empirical results on different benchmarks demonstrate that FuGuard significantly reduces the impact of the target client’s data while maintaining the performance of non-target clients, consistently outperforming state-of-the-art baselines in both forgetting effectiveness and accuracy retention.
+
+## Framework
+
+![Alt text](relative/path/to/image.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## 📁 Project Structure
