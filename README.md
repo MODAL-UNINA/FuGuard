@@ -21,9 +21,10 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 
 ## Experiment
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/client_label.png" width="300"/>
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/test_label.png" width="300"/>
+  <img src="https://raw.githubusercontent.com/MODAL-UNINA/FuGuard/main/png/client_label.png" width="300"/>
+  <img src="https://raw.githubusercontent.com/MODAL-UNINA/FuGuard/main/png/test_label.png" width="300"/>
 </div>
+
 
 
 
