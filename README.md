@@ -19,9 +19,9 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 Using the SVHN dataset as an example, the commands below show how to reproduce the results:
 
 ```bash
-python `dilichlet_allocator_backdoor.py` --dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --target_client f_00003 --target_label 9 --inject_ratio 1
+python dilichlet_allocator_backdoor.py --dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --target_client f_00003 --target_label 9 --inject_ratio 1
 
-python `../code/FuGuard.py`
+python ../code/FuGuard.py
 --device cuda:0 --dataset SVHN --client_idx f_00003 --model ConvNet --env_path ../backdoor
 --strategy dilichlet --env seed0-u10-alpha0.1 --communication_round 50 --learning_rate 0.001
 --weight_decay 0.0001 --momentum 0.9 --local_epoch 5 --save_path ../save/fuguard --batch_size 256
@@ -31,31 +31,19 @@ python `../code/FuGuard.py`
 
 Parameter explanations:
 
---`device`: GPU device to use (e.g., cuda:0)
-
---`dataset`: Dataset name (SVHN, CIFAR10, etc.)
-
---`client_idx`: Target backdoor client ID
-
---`strategy`: Client partitioning strategy (e.g., dilichlet)
-
---`env`: Federated learning environment name
-
---`communication_round`: Number of FL communication rounds
-
---`samples_scale`: Sampling ratio for generation
-
---`gen_bs`: Batch size during generation phase
-
---`unlearn_bs`: Batch size during unlearning phase
-
---`ot_lambda`: Optimal transport unlearning weight
-
---`forgetting_epoch`: Epochs for forgetting step
-
---`forgetting_lr`: Learning rate during forgetting
-
---`communication_round_recover`: Communication rounds for recovery
+--device: GPU device to use (e.g., cuda:0)
+--dataset: Dataset name (SVHN, CIFAR10, etc.)
+--client_idx: Target backdoor client ID
+--strategy: Client partitioning strategy (e.g., dilichlet)
+--env: Federated learning environment name
+--communication_round: Number of FL communication rounds
+--samples_scale: Sampling ratio for generation
+--gen_bs: Batch size during generation phase
+--unlearn_bs: Batch size during unlearning phase
+--ot_lambda: Optimal transport unlearning weight
+--forgetting_epoch: Epochs for forgetting step
+--forgetting_lr: Learning rate during forgetting
+--communication_round_recover: Communication rounds for recovery
 ```
 ---
 
