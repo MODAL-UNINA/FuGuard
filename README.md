@@ -14,7 +14,7 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 
 ## Experiment
 <p align="center">
-  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results_table.png" width="500">
+  <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results_table.png" width="600">
 </p>
 Using the SVHN dataset as an example, the commands below show how to reproduce the results:
 
