@@ -24,7 +24,7 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 
 ### 1. FL data preparation
 
-- **`prpare_data`**  
+- **`prepare_data`**  
   Used to generate federated learning client data. Supports various data distributions:
   - Dirichlet (non-IID)
   - Backdoor injection
