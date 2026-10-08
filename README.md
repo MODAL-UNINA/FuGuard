@@ -17,64 +17,15 @@ Overview of the proposed framework, FuGuard. The process begins with a standard 
 <p align="center">
   <img src="https://github.com/MODAL-UNINA/FuGuard/blob/main/png/results_table.png" width="600">
 </p>
-Using the SVHN dataset as an example, the commands below show how to reproduce the results:
 
-```bash
-python dilichlet_allocator_backdoor.py
---dataset_name SVHN --num_clients 10 --alpha 0.1 --seed 0 --client_idx f_00003 --target_label 9 --inject_ratio 1
 
-python ../code/FuGuard.py
---device cuda:0 --dataset SVHN --client_idx f_00003 --model ConvNet --env_path ../backdoor
---strategy dilichlet --env seed0-u10-alpha0.1 --communication_round 50 --learning_rate 0.001
---weight_decay 0.0001 --momentum 0.9 --local_epoch 5 --save_path ../save/fuguard --batch_size 256
---samples_scale 0.1 --gen_bs 64 --unlearn_bs 64 --ot_lambda 0.1 --alpha 0.5 --forgetting_epoch 5
---forgetting_lr 0.001 --recover_epoch 5 --communication_round_recover 10 --num_workers 4
---pin_memory False --persistent_workers False --seed 0
-```
 
-### Parameter explanations:
---dataset_name: Name of the dataset (e.g., SVHN).
+## 🚀 How to Use
 
---num_clients: Number of clients to split the data into.
+### 1. FL data preparation
 
---alpha: Controls the degree of non-iid distribution; lower values mean higher heterogeneity.
-
---client_idx: The ID of the client to be backdoored (e.g., f_00003).
-
---target_label: The target label for backdoor injection.
-
---inject_ratio: The ratio of injected backdoor samples in the target client's data.
-
---device: GPU device to use (e.g., cuda:0)
-
---strategy: Client partitioning strategy (e.g., dilichlet)
-
---env: Federated learning environment name
-
---communication_round: Number of FL communication rounds
-
---samples_scale: Sampling ratio for generation
-
---gen_bs: Batch size during data generation
-
---unlearn_bs: Batch size during the unlearning phase
-
---ot_lambda: Optimal transport unlearning weight
-
---forgetting_epoch: Epochs for forgetting step
-
---forgetting_lr: Learning rate during forgetting
-
---communication_round_recover: Communication rounds for recovery
-
----
-
-## 📁 Project Structure
-
-### 1. FL Environment Setup
-
-- **`dilichlet_allocator_backdoor`**  
-  Used to generate federated learning environments. Supports various data distributions:
+- **`prpare_data`**  
+  Used to generate federated learning client data. Supports various data distributions:
   - Dirichlet (non-IID)
   - Backdoor injection
 
@@ -88,26 +39,20 @@ Implemented Federated Unlearning methods:
 - **FedSGA**  
   Implements Stochastic Gradient Ascent for server and client unlearning.
 
-- **QuickDrop**  
+- **Fast-FedUL**  
   Based on the paper:  
-  _"QuickDrop: Efficient Federated Unlearning via Synthetic Data Generation"_
+  _"Fast-fedul: A training-free federated unlearning with provable skew resilience"_
 
 - **FU**  
   Based on the paper:  
   _"Federated Unlearning: How to Efficiently Erase a Client in FL?"_
 
+- **NoT**  
+  Based on the paper:  
+  _"NoT: Federated Unlearning via Weight Negation"_
+  
 - **FuGuard**  
   Our proposed method for efficient and privacy-preserving client unlearning.
-
----
-
-## 🚀 How to Use
-
-1. **Generate FL Environment**  
-   Use the `dilichlet_allocator_backdoor.py` to simulate a federated training environment with backdoor injection.
-
-2. **Run FU Methods**  
-   Select and run any of the implemented FU strategies to evaluate their performance in the folder `../code`.
 
 ---
 
